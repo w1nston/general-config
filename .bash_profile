@@ -2,9 +2,20 @@
 
 # Terminal prompt $PS1 stuffs
 
-PS1=$'\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;18m\] \xce\xbb\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)$(parse_git_dirty) $ '
+if [ -f ~/.bash-terminal ]; then
+    . ~/.bash-terminal
+fi
 
-# General things
+# Node with n
+
+export N_PREFIX="$HOME/.n"
+export NPM_PACKAGES="$HOME/.npm-packages"
+
+# Editor
 
 export EDITOR=vim
+
+# PATH
+
+export PATH="$PATH:$NPM_PACKAGES/bin:$N_PREFIX/bin"
 
